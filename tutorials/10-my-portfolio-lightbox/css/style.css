@@ -2,9 +2,9 @@
 
 :root {
     --bg-color-1: #111;
-    --bg-color-2: hsl(0, 0%, 94%);
+    --bg-color-2: #efefef;
     --font: #a2a2a2;
-    --accent-1: #bebebe;
+    --accent-1: #C9CBA3;
     --accent-2: #e1e1e1;
     --dark: #222
 }
@@ -62,9 +62,16 @@ header {
 }
 
 header h1 {
-    text-shadow: -5px 5px 0px #a9ab7acc, -10px 10px 0px #a9ab7aa6, -15px 15px 0px #a9ab7a23;
+    text-shadow: -10px 10px 0px #e2e2e2a6, -15px 15px 0px #83838323;
 
 }
+
+h1 {
+  font-family: "LINE Seed JP", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 
 .nav {
     margin-left: auto;
@@ -200,27 +207,29 @@ footer img {
 
 }
 
-@media (max-width: 750px){
+@media (max-width: 750px) {
     footer p {
         font-size: 1.2rem;
     }
-    
-    
+
+
     footer img {
         max-width: 2rem;
         margin: 0 .2rem;
     }
 }
 
-@media (max-width: 450px){
+@media (max-width: 450px) {
     footer p {
         font-size: 1rem;
     }
+
     footer img {
         max-width: 1.5rem;
         margin: 0 .1rem;
     }
 }
+
 /*~~~~~~~~~~~~~~~~ flex styling ~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .flex-container {
