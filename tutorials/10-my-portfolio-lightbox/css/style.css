@@ -4,7 +4,7 @@
     --bg-color-1: #111;
     --bg-color-2: #efefef;
     --font: #a2a2a2;
-    --accent-1: #C9CBA3;
+    --accent-1: #545454;
     --accent-2: #e1e1e1;
     --dark: #222
 }
@@ -134,13 +134,13 @@ nav a:hover {
 .nav-menu.active {
     display: flex;
     flex-direction: column;
-    background-color: var(--font);
+    background-color: var(--accent-2);
     padding: 1rem;
 
 }
 
 .nav-menu a {
-    color: var(--font);
+    color: var(--font)
 }
 
 
