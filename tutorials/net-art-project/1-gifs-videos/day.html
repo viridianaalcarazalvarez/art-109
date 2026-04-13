@@ -4,25 +4,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning GIF</title>
+    <title>day</title>
     <style>
         body {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
+            margin: 0;
             background-color: #f3f3f3;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
         }
 
-        img {
+        body.sky-bg {
+            background-image: url('media/sky.gif');
+        }
+
+        #skyHit {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+        }
+
+        body.sky-bg #skyHit {
+            display: block;
+        }
+
+        #eatGif {
+            position: relative;
+            z-index: 1;
             max-width: 100%;
             max-height: 100vh;
+            cursor: pointer;
+        }
+
+        #workGif {
+            display: none;
+            position: fixed;
+            right: 2%;
+            bottom: 2%;
+            left: auto;
+            top: auto;
+            z-index: 2;
+            max-height: 45vh;
+            max-width: min(55vw, 520px);
+            width: auto;
+            height: auto;
+            pointer-events: none;
+        }
+
+        #workGif.visible {
+            display: block;
+            pointer-events: auto;
+            cursor: pointer;
+        }
+
+        #eatLabel {
+            display: none;
+            position: fixed;
+            top: 2%;
+            left: 2%;
+            z-index: 3;
+            margin: 0;
+            font-size: clamp(1.25rem, 4vw, 2rem);
+            font-family: system-ui, sans-serif;
+            font-weight: 600;
+            color: #111;
+            text-shadow: 0 0 10px #fff, 0 0 6px #fff;
+        }
+
+        #eatLabel.visible {
+            display: block;
+            cursor: pointer;
         }
     </style>
 </head>
 
 <body>
-    <img src="morning.gif" alt="Morning GIF"> <!-- Use your actual GIF here -->
+    <div id="skyHit" aria-hidden="true"></div>
+
+    <img src="media/eat.gif" alt="eat" id="eatGif">
+
+    <img src="media/work.gif" alt="" id="workGif">
+
+    <p id="eatLabel">eat, work, eat, work, hang out, chill
+        eat, work, i hate working, the sky is nice, my eyes hurt,
+        love, i love noodles, i cant wait to get off work, phone, who texted me.
+        eat, work, eat, work, hang out, chill
+        eat, work, i hate working, the sky is nice, my eyes hurt,
+        love, i love noodles, i cant wait to get off work, phone, who texted me.
+        eat, work, eat, work, hang out, chill
+        eat, work, i hate working, the sky is nice, my eyes hurt,
+        love, i love noodles, i cant wait to get off work, phone, who texted me.
+        eat, work, eat, work, hang out, chill
+        eat, work, i hate working, the sky is nice, my eyes hurt,
+        love, i love noodles, i cant wait to get off work, phone, who texted me.
+        eat, work, eat, work, hang out, chill
+        eat, work, i hate working, the sky is nice, my eyes hurt,
+        love, i love noodles, i cant wait to get off work, phone, who texted me.
+        eat, work, eat, work, hang out, chill
+        eat, work, i hate working, the sky is nice, my eyes hurt,
+        love, i love noodles, i cant wait to get off work, phone, who texted me.
+        eat, work, i hate working, the sky is nice, my eyes hurt,
+        love, i love noodles, i cant wait to get off work, phone, who texted me.
+        eat, work, eat, work, hang out, chill
+        eat, work, i hate working, the sky is nice, my eyes hurt,
+        love, i love noodles, i cant wait to get off work, phone, who texted me. eat, work, i hate working, the sky is
+        nice, my eyes hurt,
+        love, i love noodles, i cant wait to get off work, phone, who texted me.
+        eat, work, eat, work, hang out, chill
+        eat, work, i hate working, the sky is nice, my eyes hurt,
+        love, i love noodles, i cant wait to get off work, phone, who texted me. eat, work, i hate working, the sky is
+        nice, my eyes hurt,
+        love, i love noodles, i cant wait to get off work, phone, who texted me.
+        eat, work, eat, work, hang out, chill
+        eat, work, i hate working, the sky is nice, my eyes hurt,
+        love, i love noodles, i cant wait to get off work, phone, who texted me. eat, work, i hate working, the sky is
+        nice, my eyes hurt,
+        love, i love noodles, i cant wait to get off work, phone, who texted me.
+        eat, work, eat, work, hang out, chill
+        eat, work, i hate working, the sky is nice, my eyes hurt,
+        love, i love noodles, i cant wait to get off work, phone, who texted me.
+
+    </p>
+
+    <script>
+        const eatGif = document.getElementById('eatGif');
+        const skyHit = document.getElementById('skyHit');
+        const workGif = document.getElementById('workGif');
+        const eatLabel = document.getElementById('eatLabel');
+
+        eatGif.addEventListener('click', function () {
+            document.body.classList.toggle('sky-bg');
+            if (!document.body.classList.contains('sky-bg')) {
+                workGif.classList.remove('visible');
+                eatLabel.classList.remove('visible');
+            }
+        });
+
+        skyHit.addEventListener('click', function () {
+            if (document.body.classList.contains('sky-bg')) {
+                workGif.classList.add('visible');
+            }
+        });
+
+        workGif.addEventListener('click', function (e) {
+            e.stopPropagation();
+            if (workGif.classList.contains('visible')) {
+                eatLabel.classList.add('visible');
+            }
+        });
+
+        eatLabel.addEventListener('click', function (e) {
+            e.stopPropagation();
+            if (eatLabel.classList.contains('visible')) {
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+
 </body>
 
 </html>

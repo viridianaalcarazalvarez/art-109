@@ -31,7 +31,7 @@
             cursor: pointer;
         }
 
-         #text {
+        #text {
             display: none;
             position: relative;
             z-index: 1;
@@ -43,6 +43,7 @@
             text-shadow: 0 0 6px #fff, 0 0 10px #fff;
         }
 
+        /* Catches clicks on the “empty” page; sits under coffee + text */
         #bgHit {
             display: none;
             position: fixed;
@@ -50,7 +51,7 @@
             z-index: 0;
         }
 
-         body.nature-bg #bgHit {
+        body.nature-bg #bgHit {
             display: block;
         }
 
@@ -68,44 +69,111 @@
             pointer-events: none;
         }
 
-    #birdsGif.visible {
+        #birdsGif.visible {
             display: block;
         }
-        
+
+        #sunshineGif {
+            display: none;
+            position: fixed;
+            top: 2%;
+            left: 6%;
+            right: auto;
+            z-index: 2;
+            max-width: min(95vw, 900px);
+            width: auto;
+            height: auto;
+            pointer-events: none;
+        }
+
+        #sunshineGif.visible {
+            display: block;
+            pointer-events: auto;
+            cursor: pointer;
+        }
+
+        #explosionGif {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            /* override global img { max-width / max-height } so it can fill the viewport */
+            max-width: none;
+            max-height: none;
+            width: 100vw;
+            height: 100vh;
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            object-position: center;
+            pointer-events: auto;
+        }
+
+        #explosionGif.visible {
+            display: block;
+            cursor: pointer;
+        }
     </style>
 </head>
 
 <body>
+    <div id="bgHit" aria-hidden="true"></div>
+
     <img src="media/coffee.gif" alt="coffee" id="coffeeGif">
 
     <div id="text">
         it's sunny...
     </div>
 
+    <img src="media/birds.gif" alt="" id="birdsGif">
+
+    <img src="media/sunshine.gif" alt="" id="sunshineGif">
+
+    <img src="media/explosion.gif" alt="" id="explosionGif">
+
     <script>
         const gif = document.getElementById('coffeeGif');
         const text = document.getElementById('text');
         const bgHit = document.getElementById('bgHit');
         const birdsGif = document.getElementById('birdsGif');
+        const sunshineGif = document.getElementById('sunshineGif');
+        const explosionGif = document.getElementById('explosionGif');
 
-        gif.addEventListener('click', function() {
+        gif.addEventListener('click', function () {
             text.style.display = text.style.display === 'none' ? 'block' : 'none';
         });
 
-        text.addEventListener('click', function() {
+        text.addEventListener('click', function () {
             document.body.classList.toggle('nature-bg');
             if (!document.body.classList.contains('nature-bg')) {
                 birdsGif.classList.remove('visible');
+                sunshineGif.classList.remove('visible');
+                explosionGif.classList.remove('visible');
             }
         });
 
-        bgHit.addEventListener('click', function() {
-            if (document.body.classList.contains('nature-bg')) {
-                birdsGif.classList.add('visible');
+        sunshineGif.addEventListener('click', function (e) {
+            e.stopPropagation();
+            if (sunshineGif.classList.contains('visible')) {
+                explosionGif.classList.add('visible');
             }
         });
-        </script>
-        
+
+        bgHit.addEventListener('click', function () {
+            if (!document.body.classList.contains('nature-bg')) return;
+            if (!birdsGif.classList.contains('visible')) {
+                birdsGif.classList.add('visible');
+            } else {
+                sunshineGif.classList.add('visible');
+            }
+        });
+
+        explosionGif.addEventListener('click', function () {
+            if (explosionGif.classList.contains('visible')) {
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
 </body>
 
 </html>
