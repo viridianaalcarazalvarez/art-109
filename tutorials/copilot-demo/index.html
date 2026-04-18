@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Feed</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dolphins-container">
+        <div class="dolphin dolphin-1">🐬</div>
+        <div class="dolphin dolphin-2">🐬</div>
+        <div class="dolphin dolphin-3">🐬</div>
+    </div>
+    
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                🌊 SocialFeed
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">🏠 Home</a></li>
+                <li><a href="#profile">👤 Profile</a></li>
+                <li><a href="#settings">⚙️ Settings</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    <main class="container">
+        <section id="feed" class="feed-section">
+            <div class="post-form">
+                <textarea placeholder="What's on your mind?"></textarea>
+                <button class="post-btn">✈️ Post</button>
+            </div>
+            <div class="post">
+                <div class="post-header">
+                    <img src="https://via.placeholder.com/50x50" alt="User Avatar" class="avatar">
+                    <h2>Marina_Vibes</h2>
+                    <span class="timestamp">2h ago</span>
+                </div>
+                <p>Mesmerizing aquatic serenity captured! Crystal-clear waters shimmer magnificently beneath morning luminescence. Absolutely tranquil scenery deserves appreciation!</p>
+                <div class="post-image-container">
+                    <img src="images/water.png" alt="Post Image" class="post-image">
+                    <div class="post-actions-overlay">
+                        <button class="like-btn">❤️</button>
+                        <button class="comment-btn">💬</button>
+                        <button class="share-btn">↗️</button>
+                    </div>
+                </div>
+            </div>
+            <div class="post">
+                <div class="post-header">
+                    <img src="https://via.placeholder.com/50x50" alt="User Avatar" class="avatar">
+                    <h2>CreativeMinds</h2>
+                    <span class="timestamp">5h ago</span>
+                </div>
+                <p>Launched my groundbreaking portfolio! Featuring innovative designs, extraordinary artwork, remarkable photography. Excitement overflowing tremendously! Grateful beyond measure!</p>
+                <div class="post-image-container">
+                    <img src="https://via.placeholder.com/400x300" alt="Post Image" class="post-image">
+                    <div class="post-actions-overlay">
+                        <button class="like-btn">❤️</button>
+                        <button class="comment-btn">💬</button>
+                        <button class="share-btn">↗️</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <aside id="user-profiles" class="sidebar">
+            <h2>Suggested Users</h2>
+            <div class="profile">
+                <img src="https://via.placeholder.com/50x50" alt="User Avatar" class="avatar">
+                <h3>ArtisticSoul</h3>
+                <p>Photographer, Designer, Visionary.</p>
+                <button class="follow-btn">Follow</button>
+            </div>
+            <div class="profile">
+                <img src="https://via.placeholder.com/50x50" alt="User Avatar" class="avatar">
+                <h3>NatureExplorer</h3>
+                <p>Wildlife enthusiast, Adventure seeker.</p>
+                <button class="follow-btn">Follow</button>
+            </div>
+        </aside>
+    </main>
+    <footer>
+        <p>&copy; 2026 Social Media Feed. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
